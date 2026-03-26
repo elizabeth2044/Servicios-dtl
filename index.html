@@ -5,101 +5,155 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Rethink Sans', sans-serif; background: transparent; overflow: hidden; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Rethink Sans', sans-serif; background: transparent; overflow: hidden; }
 
-/* ── DESKTOP: Grid de 4 columnas ── */
-.cards-desktop {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 10px;
-}
+  #wrap { padding: 20px; width: 100%; }
 
-/* ── TARJETA (Ahora es la etiqueta <a>) ── */
-.card {
-  background: #e8e4da;
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform .3s, box-shadow .3s;
-  cursor: pointer;
-  text-decoration: none; /* Quita el subrayado del enlace */
-  color: inherit;
-}
+  /* Contenedor Grid Principal */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas exactas */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-.card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+  /* La tarjeta es el enlace mismo para que todo sea cliqueable */
+  .card {
+    background: #e8e4da;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(77,48,50,0.1);
+  }
 
-.card-img { width: 100%; height: 200px; overflow: hidden; background: #4d3032; }
-.card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; display: block; }
-.card:hover .card-img img { transform: scale(1.05); }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(58,34,36,0.15);
+  }
 
-.card-body { padding: 20px; display: flex; flex-direction: column; flex: 1; gap: 10px; }
-.card-num { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(77,48,50,.4); }
-.card-titulo { font-size: 18px; font-weight: 700; color: #3a2224; line-height: 1.2; }
-.card-sep { width: 32px; height: 1.5px; background: rgba(77,48,50,.2); }
-.card-desc { font-size: 13px; line-height: 1.6; color: #7a6063; flex: 1; }
+  .card-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: #3a2224;
+  }
 
-.card-cta { 
-  display: inline-flex; align-items: center; gap: 8px; font-size: 11px; 
-  font-weight: 600; text-transform: uppercase; color: #4d3032; margin-top: 10px; 
-}
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
 
-/* ── MOBILE ── */
-@media (max-width: 700px) {
-  .cards-desktop { display: none; }
-  .cards-mobile { display: block; padding: 20px; }
-  /* Estilos de carrusel omitidos para brevedad, pero se mantienen igual */
-}
+  .card:hover .card-img img { transform: scale(1.1); }
+
+  .card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-num {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: rgba(77,48,50,0.5);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .card-titulo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3a2224;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .card-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #7a6063;
+    margin-bottom: 20px;
+  }
+
+  .card-cta {
+    margin-top: auto;
+    font-size: 12px;
+    font-weight: 700;
+    color: #3a2224;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Responsive para Mobile */
+  @media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    body { overflow: visible; }
+  }
 </style>
 </head>
 <body>
 
 <div id="wrap">
-  <div class="cards-desktop">
+  <div class="cards-grid">
     
     <a href="https://elinebulastudio.wixsite.com/my-site/products" class="card">
-      <div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_1827a639d40f499e9a5734b9777788c2~mv2.jpg"></div>
+      <div class="card-img">
+        <img src="https://static.wixstatic.com/media/df8a31_1827a639d40f499e9a5734b9777788c2~mv2.jpg" alt="Etapa Prejurídica">
+      </div>
       <div class="card-body">
-        <div class="card-num">Etapa 01</div>
-        <div class="card-titulo">Etapa Prejurídica</div>
-        <div class="card-sep"></div>
-        <div class="card-desc">Estrategias de cobro previas al proceso judicial que maximizan la recuperación.</div>
-        <div class="card-cta">Conocer más →</div>
+        <span class="card-num">Etapa 01</span>
+        <h3 class="card-titulo">Etapa Prejurídica</h3>
+        <p class="card-desc">Estrategias de cobro previas al proceso judicial para maximizar recuperación.</p>
+        <div class="card-cta">Conocer más <span>→</span></div>
       </div>
     </a>
 
     <a href="https://elinebulastudio.wixsite.com/my-site/serviciojuridico" class="card">
-      <div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_1e6f1e6eabc745c686a49fe17281ace8~mv2.jpg"></div>
+      <div class="card-img">
+        <img src="https://static.wixstatic.com/media/df8a31_1e6f1e6eabc745c686a49fe17281ace8~mv2.jpg" alt="Etapa Jurídica">
+      </div>
       <div class="card-body">
-        <div class="card-num">Etapa 02</div>
-        <div class="card-titulo">Etapa Jurídica</div>
-        <div class="card-sep"></div>
-        <div class="card-desc">Representación legal especializada en cobros ejecutivos y recuperación de activos.</div>
-        <div class="card-cta">Conocer más →</div>
+        <span class="card-num">Etapa 02</span>
+        <h3 class="card-titulo">Etapa Jurídica</h3>
+        <p class="card-desc">Representación legal especializada en cobros ejecutivos y procesos judiciales.</p>
+        <div class="card-cta">Conocer más <span>→</span></div>
       </div>
     </a>
 
     <a href="https://elinebulastudio.wixsite.com/my-site/insolvencia" class="card">
-      <div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_318f93931a4d490585c1bb98fd1b8dd6~mv2.jpg"></div>
+      <div class="card-img">
+        <img src="https://static.wixstatic.com/media/df8a31_318f93931a4d490585c1bb98fd1b8dd6~mv2.jpg" alt="Insolvencia">
+      </div>
       <div class="card-body">
-        <div class="card-num">Etapa 03</div>
-        <div class="card-titulo">Insolvencia</div>
-        <div class="card-sep"></div>
-        <div class="card-desc">Asumimos la representación de entidades financieras en procesos de insolvencia.</div>
-        <div class="card-cta">Conocer más →</div>
+        <span class="card-num">Etapa 03</span>
+        <h3 class="card-titulo">Insolvencia</h3>
+        <p class="card-desc">Asumimos la representación proactiva en procesos de insolvencia empresarial.</p>
+        <div class="card-cta">Conocer más <span>→</span></div>
       </div>
     </a>
 
     <a href="#" class="card">
-      <div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_f77ff08a061647bdb0189d9015ac2bfd~mv2.jpg"></div>
+      <div class="card-img">
+        <img src="https://static.wixstatic.com/media/df8a31_f77ff08a061647bdb0189d9015ac2bfd~mv2.jpg" alt="Seguridad">
+      </div>
       <div class="card-body">
-        <div class="card-num">Complemento</div>
-        <div class="card-titulo">Seguridad de la información</div>
-        <div class="card-sep"></div>
-        <div class="card-desc">Implementamos protocolos de seguridad y gestión de riesgos informáticos.</div>
-        <div class="card-cta">Conocer más →</div>
+        <span class="card-num">Complemento</span>
+        <h3 class="card-titulo">Seguridad de la información</h3>
+        <p class="card-desc">Protocolos de seguridad que salvaguardan la confidencialidad de su entidad.</p>
+        <div class="card-cta">Conocer más <span>→</span></div>
       </div>
     </a>
 
@@ -107,13 +161,17 @@ body { font-family: 'Rethink Sans', sans-serif; background: transparent; overflo
 </div>
 
 <script>
-// Mantén tu script de notifyHeight aquí para que Wix ajuste el tamaño
-function notifyHeight() {
-  var h = document.getElementById('wrap').scrollHeight;
-  window.parent.postMessage({ height: h + 20 }, '*');
-}
-window.onload = notifyHeight;
-window.onresize = notifyHeight;
+  function notifyHeight() {
+    const wrap = document.getElementById('wrap');
+    if (wrap) {
+      const h = wrap.offsetHeight;
+      window.parent.postMessage({ height: h + 40 }, '*');
+    }
+  }
+  window.onload = notifyHeight;
+  window.onresize = notifyHeight;
+  // Ejecutar de nuevo tras un segundo por si las imágenes tardan
+  setTimeout(notifyHeight, 1000);
 </script>
 
 </body>
