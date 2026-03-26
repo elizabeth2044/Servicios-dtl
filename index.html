@@ -1,185 +1,38 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  /* Cambiado para permitir que el script de Wix mida mejor */
-  body { 
-    font-family: 'Rethink Sans', sans-serif; 
-    background: transparent; 
-    overflow-x: hidden; 
-  }
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:transparent;overflow:hidden;margin:0;padding:0;line-height:0}#wrap{line-height:1;display:block}.card{background:#e8e4da;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;flex-shrink:0;cursor:pointer;transition:transform .3s}.card-img{width:100%;height:190px;overflow:hidden;background:#4d3032;flex-shrink:0}.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}.card:hover .card-img img{transform:scale(1.05)}.card-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:9px}.card-num{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(77,48,50,.4)}.card-titulo{font-size:18px;font-weight:700;color:#3a2224;line-height:1.2}.card-sep{width:28px;height:1.5px;background:rgba(77,48,50,.2)}.card-desc{font-size:13px;line-height:1.7;color:#7a6063}.card-cta{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#4d3032;text-decoration:none;margin-top:4px}.card:hover .card-cta{gap:12px}
+@media(min-width:701px){#wrap{min-width:1040px;height:auto}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.mob{display:none}.card:hover{transform:translateY(-5px)}}
+@media(max-width:700px){#wrap{min-width:335px}.grid{display:none}.mob{display:block}.vp{overflow:hidden;cursor:grab;user-select:none}.vp:active{cursor:grabbing}.trk{display:flex;gap:14px;transition:transform .45s cubic-bezier(.25,.46,.45,.94)}.trk .card{width:calc(85vw - 24px);min-width:260px}.ctrl{display:flex;align-items:center;justify-content:space-between;margin-top:16px}.dots{display:flex;gap:6px}.dot{width:6px;height:6px;border-radius:3px;background:rgba(77,48,50,.2);border:none;cursor:pointer;padding:0;transition:all .3s}.dot.on{background:#4d3032;width:18px}.btns{display:flex;gap:8px}.btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(77,48,50,.2);background:transparent;color:#4d3032;cursor:pointer;display:flex;align-items:center;justify-content:center}.btn:disabled{opacity:.2;pointer-events:none}.card-img{height:160px}.card-titulo{font-size:17px}}</style></head>
+<body><div id="wrap">
 
-  #wrap { padding: 20px; width: 100%; display: block; }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .card {
-    background: #e8e4da;
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(77,48,50,0.1);
-    height: 100%; /* Asegura que todas midan lo mismo */
-  }
-
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(58,34,36,0.15);
-  }
-
-  .card-img {
-    width: 100%;
-    height: 180px;
-    overflow: hidden;
-    background: #3a2224;
-  }
-
-  .card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .card:hover .card-img img { transform: scale(1.1); }
-
-  .card-body {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .card-num {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: rgba(77,48,50,0.5);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-  }
-
-  .card-titulo {
-    font-size: 20px;
-    font-weight: 700;
-    color: #3a2224;
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-
-  .card-desc {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #7a6063;
-    margin-bottom: 20px;
-  }
-
-  .card-cta {
-    margin-top: auto;
-    font-size: 12px;
-    font-weight: 700;
-    color: #3a2224;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* Responsive optimizado */
-  @media (max-width: 1024px) {
-    .cards-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 600px) {
-    .cards-grid { grid-template-columns: 1fr; }
-  }
-</style>
-</head>
-<body>
-
-<div id="wrap">
-  <div class="cards-grid">
-    
-    <a href="https://www.elinebulastudio.wixsite.com/my-site/products" class="card" target="_top"> 
-      <div class="card-img">
-        <img src="https://static.wixstatic.com/media/df8a31_1827a639d40f499e9a5734b9777788c2~mv2.jpg" alt="Etapa Prejurídica">
-      </div>
-      <div class="card-body">
-        <span class="card-num">Etapa 01</span>
-        <h3 class="card-titulo">Etapa Prejurídica</h3>
-        <p class="card-desc">Estrategias de cobro previas al proceso judicial para maximizar recuperación.</p>
-        <div class="card-cta">Conocer más <span>→</span></div>
-      </div>
-    </a>
-
-    <a href="https://www.elinebulastudio.wixsite.com/my-site/serviciojuridico" class="card" target="_top">
-      <div class="card-img">
-        <img src="https://static.wixstatic.com/media/df8a31_1e6f1e6eabc745c686a49fe17281ace8~mv2.jpg" alt="Etapa Jurídica">
-      </div>
-      <div class="card-body">
-        <span class="card-num">Etapa 02</span>
-        <h3 class="card-titulo">Etapa Jurídica</h3>
-        <p class="card-desc">Representación legal especializada en cobros ejecutivos y procesos judiciales.</p>
-        <div class="card-cta">Conocer más <span>→</span></div>
-      </div>
-    </a>
-
-    <a href="https://www.elinebulastudio.wixsite.com/my-site/insolvencia" class="card" target="_top">
-      <div class="card-img">
-        <img src="https://static.wixstatic.com/media/df8a31_318f93931a4d490585c1bb98fd1b8dd6~mv2.jpg" alt="Insolvencia">
-      </div>
-      <div class="card-body">
-        <span class="card-num">Etapa 03</span>
-        <h3 class="card-titulo">Insolvencia</h3>
-        <p class="card-desc">Asumimos la representación proactiva en procesos de insolvencia empresarial.</p>
-        <div class="card-cta">Conocer más <span>→</span></div>
-      </div>
-    </a>
-
-    <a href="https://elinebulastudio.wixsite.com/my-site/seguridad" class="card" target="_top">
-      <div class="card-img">
-        <img src="https://static.wixstatic.com/media/df8a31_f77ff08a061647bdb0189d9015ac2bfd~mv2.jpg" alt="Seguridad">
-      </div>
-      <div class="card-body">
-        <span class="card-num">Complemento</span>
-        <h3 class="card-titulo">Seguridad de la información</h3>
-        <p class="card-desc">Protocolos de seguridad que salvaguardan la confidencialidad de su entidad.</p>
-        <div class="card-cta">Conocer más <span>→</span></div>
-      </div>
-    </a>
-
-  </div>
+<div class="grid">
+<div class="card"><div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_1827a639d40f499e9a5734b9777788c2~mv2.jpg" alt=""></div><div class="card-body"><div class="card-num">Etapa 01</div><div class="card-titulo">Etapa Prejurídica</div><div class="card-sep"></div><div class="card-desc">Estrategias de cobro previas al proceso judicial que maximizan la recuperación preservando la relación comercial de tu entidad.</div><a href="#" class="card-cta">Conocer más →</a></div></div>
+<div class="card"><div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_1e6f1e6eabc745c686a49fe17281ace8~mv2.jpg" alt=""></div><div class="card-body"><div class="card-num">Etapa 02</div><div class="card-titulo">Etapa Jurídica</div><div class="card-sep"></div><div class="card-desc">Representación legal especializada en cobros ejecutivos, procesos de insolvencia y recuperación de activos con precisión técnica.</div><a href="#" class="card-cta">Conocer más →</a></div></div>
+<div class="card"><div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_318f93931a4d490585c1bb98fd1b8dd6~mv2.jpg" alt=""></div><div class="card-body"><div class="card-num">Etapa 03</div><div class="card-titulo">Insolvencia</div><div class="card-sep"></div><div class="card-desc">Asumimos la representación de entidades financieras en procesos de insolvencia desde un rol proactivo y estratégico.</div><a href="#" class="card-cta">Conocer más →</a></div></div>
+<div class="card"><div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_f77ff08a061647bdb0189d9015ac2bfd~mv2.jpg" alt=""></div><div class="card-body"><div class="card-num">Complemento</div><div class="card-titulo">Seguridad de la información</div><div class="card-sep"></div><div class="card-desc">Implementamos protocolos de seguridad y gestión de riesgos que salvaguardan la confidencialidad y disponibilidad de su información.</div><a href="#" class="card-cta">Conocer más →</a></div></div>
 </div>
 
-<script>
-  function notifyHeight() {
-    const wrap = document.getElementById('wrap');
-    if (wrap) {
-      // Usamos getBoundingClientRect para mayor precisión en iFrames
-      const h = wrap.getBoundingClientRect().height;
-      window.parent.postMessage({ height: h + 40 }, '*');
-    }
-  }
-  
-  window.addEventListener('load', notifyHeight);
-  window.addEventListener('resize', notifyHeight);
-  
-  // Re-confirmar altura por si las fuentes o imágenes tardan
-  setTimeout(notifyHeight, 1500);
-</script>
+<div class="mob"><div class="vp" id="vp"><div class="trk" id="trk">
+<div class="card"><div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_1827a639d40f499e9a5734b9777788c2~mv2.jpg" alt=""></div><div class="card-body"><div class="card-num">Etapa 01</div><div class="card-titulo">Etapa Prejurídica</div><div class="card-sep"></div><div class="card-desc">Estrategias de cobro previas al proceso judicial que maximizan la recuperación preservando la relación comercial de tu entidad.</div><a href="#" class="card-cta">Conocer más →</a></div></div>
+<div class="card"><div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_1e6f1e6eabc745c686a49fe17281ace8~mv2.jpg" alt=""></div><div class="card-body"><div class="card-num">Etapa 02</div><div class="card-titulo">Etapa Jurídica</div><div class="card-sep"></div><div class="card-desc">Representación legal especializada en cobros ejecutivos, procesos de insolvencia y recuperación de activos con precisión técnica.</div><a href="#" class="card-cta">Conocer más →</a></div></div>
+<div class="card"><div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_318f93931a4d490585c1bb98fd1b8dd6~mv2.jpg" alt=""></div><div class="card-body"><div class="card-num">Etapa 03</div><div class="card-titulo">Insolvencia</div><div class="card-sep"></div><div class="card-desc">Asumimos la representación de entidades financieras en procesos de insolvencia desde un rol proactivo y estratégico.</div><a href="#" class="card-cta">Conocer más →</a></div></div>
+<div class="card"><div class="card-img"><img src="https://static.wixstatic.com/media/df8a31_f77ff08a061647bdb0189d9015ac2bfd~mv2.jpg" alt=""></div><div class="card-body"><div class="card-num">Complemento</div><div class="card-titulo">Seguridad de la información</div><div class="card-sep"></div><div class="card-desc">Implementamos protocolos de seguridad y gestión de riesgos que salvaguardan la confidencialidad y disponibilidad de su información.</div><a href="#" class="card-cta">Conocer más →</a></div></div>
+</div></div>
+<div class="ctrl"><div class="dots" id="dots"></div><div class="btns"><button class="btn" id="bp"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M7 1L2 5.5L7 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="btn" id="bn"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M4 1L9 5.5L4 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
+</div>
 
-</body>
-</html>
+</div><script>
+document.addEventListener('DOMContentLoaded',function(){var h=document.getElementById('wrap').scrollHeight;window.parent.postMessage({height:h+4},'*');});!function(){var t=document.getElementById('trk'),v=document.getElementById('vp'),de=document.getElementById('dots'),bp=document.getElementById('bp'),bn=document.getElementById('bn');if(!t)return;var cards=t.querySelectorAll('.card'),N=cards.length,cur=0,sx=0,sf=0,drag=0;
+for(var i=0;i<N;i++){var d=document.createElement('button');d.className='dot'+(i===0?' on':'');d.setAttribute('data-i',i);d.onclick=function(){go(+this.getAttribute('data-i'))};de.appendChild(d);}
+function cw(){return cards[0].offsetWidth+14;}
+function go(i){cur=Math.max(0,Math.min(i,N-1));t.style.transform='translateX(-'+(cur*cw())+'px)';de.querySelectorAll('.dot').forEach(function(d,j){d.classList.toggle('on',j===cur)});bp.disabled=cur===0;bn.disabled=cur===N-1;setTimeout(nh,400);}
+bp.onclick=function(){go(cur-1)};bn.onclick=function(){go(cur+1)};
+v.addEventListener('mousedown',function(e){drag=1;sx=e.pageX;sf=cur});
+window.addEventListener('mousemove',function(e){if(!drag)return;if(Math.abs(e.pageX-sx)>50){drag=0;go(e.pageX<sx?sf+1:sf-1)}});
+window.addEventListener('mouseup',function(){drag=0});
+v.addEventListener('touchstart',function(e){sx=e.touches[0].pageX;sf=cur},{passive:1});
+v.addEventListener('touchend',function(e){var d=e.changedTouches[0].pageX-sx;if(Math.abs(d)>50)go(d<0?sf+1:sf-1)});
+go(0);
+function nh(){var h=document.getElementById('wrap').scrollHeight;window.parent.postMessage({height:h+8},'*');}
+window.addEventListener('load',function(){nh();setTimeout(nh,100);setTimeout(nh,500)});
+window.addEventListener('resize',function(){go(0);setTimeout(nh,80)});
+}();
+</script></body></html>
