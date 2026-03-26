@@ -6,20 +6,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Rethink Sans', sans-serif; background: transparent; overflow: hidden; }
+  
+  /* Cambiado para permitir que el script de Wix mida mejor */
+  body { 
+    font-family: 'Rethink Sans', sans-serif; 
+    background: transparent; 
+    overflow-x: hidden; 
+  }
 
-  #wrap { padding: 20px; width: 100%; }
+  #wrap { padding: 20px; width: 100%; display: block; }
 
-  /* Contenedor Grid Principal */
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas exactas */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
   }
 
-  /* La tarjeta es el enlace mismo para que todo sea cliqueable */
   .card {
     background: #e8e4da;
     border-radius: 16px;
@@ -29,6 +33,7 @@
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(77,48,50,0.1);
+    height: 100%; /* Asegura que todas midan lo mismo */
   }
 
   .card:hover {
@@ -94,13 +99,12 @@
     gap: 8px;
   }
 
-  /* Responsive para Mobile */
-  @media (max-width: 900px) {
+  /* Responsive optimizado */
+  @media (max-width: 1024px) {
     .cards-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 600px) {
     .cards-grid { grid-template-columns: 1fr; }
-    body { overflow: visible; }
   }
 </style>
 </head>
@@ -145,7 +149,7 @@
       </div>
     </a>
 
-    <a href="#" class="card">
+    <a href="https://elinebulastudio.wixsite.com/my-site/seguridad" class="card" target="_top">
       <div class="card-img">
         <img src="https://static.wixstatic.com/media/df8a31_f77ff08a061647bdb0189d9015ac2bfd~mv2.jpg" alt="Seguridad">
       </div>
@@ -164,14 +168,17 @@
   function notifyHeight() {
     const wrap = document.getElementById('wrap');
     if (wrap) {
-      const h = wrap.offsetHeight;
+      // Usamos getBoundingClientRect para mayor precisión en iFrames
+      const h = wrap.getBoundingClientRect().height;
       window.parent.postMessage({ height: h + 40 }, '*');
     }
   }
-  window.onload = notifyHeight;
-  window.onresize = notifyHeight;
-  // Ejecutar de nuevo tras un segundo por si las imágenes tardan
-  setTimeout(notifyHeight, 1000);
+  
+  window.addEventListener('load', notifyHeight);
+  window.addEventListener('resize', notifyHeight);
+  
+  // Re-confirmar altura por si las fuentes o imágenes tardan
+  setTimeout(notifyHeight, 1500);
 </script>
 
 </body>
